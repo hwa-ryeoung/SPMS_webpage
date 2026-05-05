@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>스마트 주차장</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <h1 class="logo">🅿 SmartPark</h1>
+    <p class="subtitle">실시간 주차 현황</p>
+  </header>
+
+  <main>
+    <section class="dashboard">
+      <div class="card">
+        <span class="card-label">전체 자리</span>
+        <span class="card-value" id="total">-</span>
+      </div>
+      <div class="card">
+        <span class="card-label">빈 자리</span>
+        <span class="card-value" id="empty">-</span>
+      </div>
+      <div class="card">
+        <span class="card-label">주차 중</span>
+        <span class="card-value" id="used">-</span>
+      </div>
+      <div class="card">
+        <span class="card-label">점유율</span>
+        <span class="card-value" id="rate">-%</span>
+      </div>
+    </section>
+
+    <div class="progress-bar-bg">
+      <div class="progress-bar-fill" id="progressBar"></div>
+    </div>
+
+    <section class="floor-plan-section">
+      <h2 class="section-title">주차장 평면도</h2>
+      <div class="floor-plan">
+        <div id="spotsGrid"></div>
+        <div class="legend">
+          <span class="legend-item"><span class="dot dot-disabled"></span>장애인</span>
+          <span class="legend-item"><span class="dot dot-compact"></span>경차</span>
+          <span class="legend-item"><span class="dot dot-ev"></span>전기차</span>
+          <span class="legend-item"><span class="dot dot-general"></span>일반</span>
+          <span class="legend-item"><span class="dot dot-occupied"></span>주차중</span>
+        </div>
+      </div>
+      <div class="entrance-label" style="text-align: right;">▲ 입구</div>
+    </section>
+
+    <section class="admin-section">
+      <h2 class="section-title">관리자 패널 <span class="badge">시연용</span></h2>
+      <div class="admin-buttons">
+        <button id="btnSim">🎲 시뮬레이션 실행</button>
+        <button id="btnReset">🔄 전체 초기화</button>
+      </div>
+      <p class="admin-notice">※ 각 주차 칸을 클릭하면 상태를 직접 변경할 수 있습니다.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 SmartPark 졸업작품 팀 | 실시간 주차 관리 시스템</p>
+  </footer>
+
+  <script src="parking-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
