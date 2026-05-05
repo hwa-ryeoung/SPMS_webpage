@@ -52,6 +52,61 @@
       <div class="entrance-label" style="text-align: right;">▲ 입구</div>
     </section>
 
+    <!-- ===== 아두이노 연동 ===== -->
+    <section class="serial-section">
+      <h2 class="section-title">아두이노 연동 <span class="badge badge-blue">시리얼</span></h2>
+
+      <!-- Web Serial API -->
+      <div class="serial-block">
+        <div class="serial-block-header">
+          <span class="serial-method-tag">Web Serial API</span>
+          <div class="serial-status-row">
+            <span class="serial-status-dot" id="serialStatusDot"></span>
+            <span class="serial-status-text" id="serialStatusText">연결 안됨</span>
+          </div>
+        </div>
+        <div id="webSerialNoSupport" class="serial-no-support" style="display:none;">
+          ⚠ Web Serial API는 Chrome / Edge에서만 지원됩니다.
+        </div>
+        <div class="serial-controls">
+          <select id="baudRate" class="serial-select">
+            <option value="9600">9600 baud</option>
+            <option value="115200">115200 baud</option>
+            <option value="57600">57600 baud</option>
+            <option value="38400">38400 baud</option>
+          </select>
+          <button id="btnSerialConnect" class="btn-serial-connect">🔌 포트 연결</button>
+          <button id="btnSerialDisconnect" class="btn-serial-disconnect" disabled>⏹ 연결 해제</button>
+        </div>
+      </div>
+
+      <!-- WebSocket 브릿지 -->
+      <div class="serial-block">
+        <div class="serial-block-header">
+          <span class="serial-method-tag tag-ws">WebSocket 브릿지</span>
+          <span class="serial-hint">serial-bridge/server.js 실행 필요</span>
+        </div>
+        <div class="serial-controls">
+          <input type="text" id="wsUrl" class="serial-input" value="ws://localhost:8080" placeholder="ws://localhost:8080" />
+          <button id="btnWsConnect" class="btn-ws-connect">연결</button>
+        </div>
+      </div>
+
+      <!-- 수신 로그 -->
+      <div class="serial-log-wrapper">
+        <div class="serial-log-header">수신 로그</div>
+        <div class="serial-log" id="serialLog"></div>
+      </div>
+
+      <!-- 프로토콜 안내 -->
+      <div class="serial-protocol">
+        <div class="serial-protocol-title">아두이노 전송 포맷</div>
+        <code>P1:1</code> 또는 <code>P1:occupied</code> — P1 주차 중<br>
+        <code>P1:0</code> 또는 <code>P1:empty</code> — P1 비어있음<br>
+        <code>{"id":"P1","status":"occupied"}</code> — JSON 포맷
+      </div>
+    </section>
+
     <section class="admin-section">
       <h2 class="section-title">관리자 패널 <span class="badge">시연용</span></h2>
       <div class="admin-buttons">
@@ -68,5 +123,6 @@
 
   <script src="parking-data.js"></script>
   <script src="app.js"></script>
+  <script src="arduino-serial.js"></script>
 </body>
 </html>

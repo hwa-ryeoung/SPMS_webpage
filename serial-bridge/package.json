@@ -1,0 +1,14 @@
+{
+  "name": "parking-serial-bridge",
+  "version": "1.0.0",
+  "description": "아두이노 시리얼 ↔ WebSocket 브릿지",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@serialport/parser-readline": "^12.0.0",
+    "serialport": "^12.0.0",
+    "ws": "^8.0.0"
+  }
+}
